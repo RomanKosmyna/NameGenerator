@@ -42,4 +42,28 @@ public class NameCollection
 
         return randomName;
     }
+
+    public static string? GetNameBySex(SexEnum sex)
+    {
+        List<Name> sortedNamesBySex = [];
+
+        foreach (var name in names)
+        {
+            if (name.Sex == sex)
+            {
+                sortedNamesBySex.Add(name);
+            }
+        }
+
+        if (sortedNamesBySex.Count == 0)
+        {
+            return null;
+        }
+
+        int randomNumber = new Random().Next(0, sortedNamesBySex.Count);
+
+        string randomName = sortedNamesBySex[randomNumber].GetName;
+
+        return randomName;
+    }
 }
