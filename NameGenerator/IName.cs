@@ -1,5 +1,12 @@
-﻿interface IName
+﻿public interface IName
 {
-    string Sex { get; set; }
+    public enum SexEnum
+    {
+        Male,
+        Female,
+        None
+    }
+
+    SexEnum Sex { get; set; }
     int NumberOfLetters { get; set; }
 }
