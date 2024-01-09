@@ -6,6 +6,7 @@ public class Name : IName
 
     public SexEnum Sex { get; set; }
     public int NumberOfLetters { get; set; }
+    public string GetName { get { return _name; } }
 
     public Name(string name, SexEnum sex = SexEnum.None)
     {
