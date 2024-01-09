@@ -1,3 +1,1 @@
-﻿Generator generator = new();
-
-generator.Run();
+﻿Generator.Run();
