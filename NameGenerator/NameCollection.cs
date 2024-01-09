@@ -2,7 +2,7 @@
 
 public class NameCollection
 {
-    private static List<Name> names =
+    private static List<Name> _names =
         [
             new Name("Anna", SexEnum.Female),
             new Name("Alex", SexEnum.Male),
@@ -23,7 +23,7 @@ public class NameCollection
     {
         List<Name> sortedNamesByLetter = [];
 
-        foreach (var name in names)
+        foreach (var name in _names)
         {
             if (name.GetName.Length > 0 && char.ToUpper(name.GetName[0]) == char.ToUpper(letter))
             {
@@ -47,7 +47,7 @@ public class NameCollection
     {
         List<Name> sortedNamesBySex = [];
 
-        foreach (var name in names)
+        foreach (var name in _names)
         {
             if (name.Sex == sex)
             {
@@ -63,6 +63,30 @@ public class NameCollection
         int randomNumber = new Random().Next(0, sortedNamesBySex.Count);
 
         string randomName = sortedNamesBySex[randomNumber].GetName;
+
+        return randomName;
+    }
+
+    public static string? GetNameByLength(int length)
+    {
+        List<Name> sortedNamesByLength = [];
+
+        foreach (var name in _names)
+        {
+            if (name.GetName.Length == length)
+            {
+                sortedNamesByLength.Add(name);
+            }
+        }
+
+        if (sortedNamesByLength.Count == 0)
+        {
+            return null;
+        }
+
+        int randomNumber = new Random().Next(0, sortedNamesByLength.Count);
+
+        string randomName = sortedNamesByLength[randomNumber].GetName;
 
         return randomName;
     }
